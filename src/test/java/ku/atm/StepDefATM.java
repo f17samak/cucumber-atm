@@ -29,6 +29,11 @@ public class StepDefATM {
         bank.addCustomer(new Customer(id, pin, balance));
     }
 
+    @Given("a customer with id (\\d+) and pin (\\d+) with balance (.*) overdraft amount is (.*)")
+    public void a_customer_with_id_and_pin_with_balance_overdraft_amount_is(int id, int pin, double balance, double odBalance) {
+        bank.addCustomer(new Customer(id, pin, balance, odBalance));
+    }
+
     @When("I login to ATM with id (\\d+) and pin (\\d+)")
     public void i_login_to_ATM_with_id_and_pin(int id, int pin) {
         validLogin = atm.validateCustomer(id, pin);
@@ -36,11 +41,13 @@ public class StepDefATM {
 
     @Then("I can login")
     public void i_can_login() {
+
         assertTrue(validLogin);
     }
 
     @Then("I cannot login")
     public void i_cannot_login() {
+
         assertFalse(validLogin);
     }
 

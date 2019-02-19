@@ -19,12 +19,20 @@ public class Customer {
       account = new BankAccount(currentBalance);
    }
 
+   public Customer(int aNumber, int aPin, double currentBalance, double odBalance) {
+      customerNumber = aNumber;
+      pin = aPin;
+      account = new BankAccount(currentBalance, odBalance);
+   }
+
    public Customer(int aNumber, int aPin) {
+
       this(aNumber, aPin, 0);
    }
 
    public int getCustomerNumber() {
-	   return customerNumber;
+
+      return customerNumber;
    }
    
    /** 
@@ -34,6 +42,7 @@ public class Customer {
       @return true if the customer number and PIN match
    */
    public boolean match(int aPin) {
+
       return pin == aPin;
    }
       
@@ -42,6 +51,7 @@ public class Customer {
       @return the account
    */
    public BankAccount getAccount() {
+
       return account;
    }
    
