@@ -3,6 +3,9 @@ Feature: overdraw
     I can choose between two accounts, normal and OD
     so that I can pay attention to not spending too much or avoid debit rejections.
 
+
+
+
 Scenario: Withdraw too much from normal account
     Given a customer with id 1 and pin 111 with balance 100 overdraft amount is 0
     And I login to ATM with id 1 and pin 111

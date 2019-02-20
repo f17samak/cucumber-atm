@@ -6,7 +6,7 @@ package ku.atm;
 */
 public class BankAccount {
    private double balance;
-   private double odBalance;
+   private double odSum;
 
    /**
       Constructs a bank account with a zero balance.
@@ -25,11 +25,11 @@ public class BankAccount {
       balance = initialBalance;
    }
 
-   public BankAccount(double initialBalance, double initialodBalance ) {
+    public BankAccount(double initialBalance, double initialodSum ) {
 
-      balance = initialBalance;
-      odBalance = initialodBalance;
-   }
+        balance = initialBalance;
+        odSum = initialodSum;
+    }
  
    /** 
       Deposits money into the account.
@@ -45,7 +45,7 @@ public class BankAccount {
       @param amount the amount of money to deposit
    */
    public void withdraw(double amount) throws NotEnoughBalanceException {
-       if (amount > (balance + odBalance))
+       if (amount > (balance + odSum))
          throw new NotEnoughBalanceException("cannot withdraw more than balance");
        balance = balance - amount;
    }

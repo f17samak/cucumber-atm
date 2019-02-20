@@ -19,10 +19,10 @@ public class Customer {
       account = new BankAccount(currentBalance);
    }
 
-   public Customer(int aNumber, int aPin, double currentBalance, double odBalance) {
+   public Customer(int aNumber, int aPin, double currentBalance, double odSum) {
       customerNumber = aNumber;
       pin = aPin;
-      account = new BankAccount(currentBalance, odBalance);
+      account = new BankAccount(currentBalance, odSum);
    }
 
    public Customer(int aNumber, int aPin) {
@@ -41,10 +41,11 @@ public class Customer {
       @param aPin a personal identification number
       @return true if the customer number and PIN match
    */
-   public boolean match(int aPin) {
 
-      return pin == aPin;
+   public boolean match ( int aPin){
+      return pin == aPin ;
    }
+
       
    /** 
       Gets the account of this customer.
